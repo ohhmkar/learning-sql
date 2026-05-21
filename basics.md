@@ -34,7 +34,8 @@ FROM shows;
 
 ### WHERE
 
-> [!NOTE] The WHERE keyword always goes after the FROM part of the query.
+> [!NOTE]  
+> The `WHERE` keyword always goes after the `FROM` part of the query.
 
 Comparison operators:
 
@@ -52,7 +53,7 @@ select * from shows where tomatometer < 60
 
 ### LIKE
 
-The LIKE operator can be used to search for a pattern in a column. It’s used in the WHERE clause:
+The `LIKE` operator can be used to search for a pattern in a column. It’s used in the `WHERE` clause:
 
 The `%` can be used in different ways:
 
@@ -60,7 +61,7 @@ The `%` can be used in different ways:
 
 `%z` matches values that end with 'z'.
 
-We can also use % both before and after a pattern:
+We can also use `%` both before and after a pattern:
 
 ```SQL
 SELECT *
@@ -72,9 +73,10 @@ Here, any show that contains the word "the" in its name will be returned.
 
 ### BETWEEN
 
-The BETWEEN operator is used in a WHERE clause to filter the result set within a certain range. The range must be separated by an AND keyword.
+The `BETWEEN` operator is used in a `WHERE` clause to filter the result set within a certain range. The range must be separated by an `AND` keyword.
 
-For example, this query filters the result to only include shows between the years 2020 and 2025 (inclusive):
+> [!TIP]
+> For example, this query filters the result to only include shows between the years 2020 and 2025 (inclusive):
 
 ```SQL
 SELECT *
@@ -83,7 +85,7 @@ WHERE year
 BETWEEN 2020 AND 2025;
 ```
 
-In this statement, BETWEEN filters the result to only include shows with names that begin with the letter 'A' up to 'D':
+In this statement, `BETWEEN` filters the result to only include shows with names that begin with the letter 'A' up to 'D':
 
 ```SQL
 SELECT *
@@ -94,7 +96,7 @@ BETWEEN 'A' AND 'D';
 
 ### ORDER BY
 
-The ORDER BY statement sorts rows of data in ascending or descending order. By default, this command sorts the data in ascending order.
+The `ORDER BY` statement sorts rows of data in ascending or descending order. By default, this command sorts the data in ascending order.
 
 ```SQL
 SELECT name, genre, stream, year
@@ -102,17 +104,18 @@ FROM shows
 ORDER BY year;
 ```
 
-This results into selecting 4 columns from our table but if you look closely, the year column is sorted into ascending order.
+This results into selecting 4 columns from our table but if you look closely, the `year` column is sorted into ascending order.
 
 It will look something like:
-| name |genre| stream | year |
+
+| name | genre | stream | year |
 | ---------------- | ----------- | ----------- | ---- |
 | Sex and the City | Drama | HBO | 1998 |
 | The Sopranos | Crime Drama | HBO | 1999 |
 | One Piece | Anime | Crunchyroll | 1999 |
 | Bleach | Anime | Crunchyroll | 2004 |
 
-Let’s say we want to get all the latest shows this time, we will have to sort the year column into descending order using the DESC command:
+Let’s say we want to get all the latest shows this time, we will have to sort the `year` column into descending order using the `DESC` command:
 
 ```SQL
 SELECT name, genre, stream, year
