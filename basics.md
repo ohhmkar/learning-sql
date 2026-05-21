@@ -34,7 +34,7 @@ FROM shows;
 
 ### WHERE
 
-[!NOTE] The WHERE keyword always goes after the FROM part of the query.
+> [!NOTE] The WHERE keyword always goes after the FROM part of the query.
 
 Comparison operators:
 
