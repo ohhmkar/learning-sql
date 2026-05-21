@@ -108,12 +108,12 @@ This results into selecting 4 columns from our table but if you look closely, th
 
 It will look something like:
 
-| name | genre | stream | year |
+| name             | genre       | stream      | year |
 | ---------------- | ----------- | ----------- | ---- |
-| Sex and the City | Drama | HBO | 1998 |
-| The Sopranos | Crime Drama | HBO | 1999 |
-| One Piece | Anime | Crunchyroll | 1999 |
-| Bleach | Anime | Crunchyroll | 2004 |
+| Sex and the City | Drama       | HBO         | 1998 |
+| The Sopranos     | Crime Drama | HBO         | 1999 |
+| One Piece        | Anime       | Crunchyroll | 1999 |
+| Bleach           | Anime       | Crunchyroll | 2004 |
 
 Let’s say we want to get all the latest shows this time, we will have to sort the `year` column into descending order using the `DESC` command:
 
