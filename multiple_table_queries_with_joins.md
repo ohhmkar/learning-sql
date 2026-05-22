@@ -1,47 +1,49 @@
-### Database normalization
+# Multiple Table Queries with JOINs
 
-Database normalization is useful because it minimizes duplicate data in any single table, and allows for data in the database to grow independently of each other (ie. Types of car engines can grow independent of each type of car). As a trade-off, queries get slightly more complex since they have to be able to find data from different parts of the database, andperformance issues can arise when working with many large tables.
+## Database Normalization
 
-### Multi-table queries with JOINs
+Database normalization is useful because it minimizes duplicate data in any single table, and allows for data in the database to grow independently of each other (ie. Types of car engines can grow independent of each type of car). As a trade-off, queries get slightly more complex since they have to be able to find data from different parts of the database, and performance issues can arise when working with many large tables.
 
-Tables that share information about a single entity need to have a primary key that identifies that entity uniquely across the database. One common primary key type is an auto-incrementing integer (because they are space efficient), but it can also be a string, hashed value, so long as it is unique.
+## Multi-table Queries with JOINs
 
-Using the JOIN clause in a query, we can combine row data across two separate tables using this unique key. The first of the joins that we will introduce is the INNER JOIN.
+Tables that share information about a single entity need to have a primary key that identifies that entity uniquely across the database. One common primary key type is an auto-incrementing integer (because they are space efficient), but it can also be a string, or a hashed value, so long as it is unique.
 
-```SQL
---- Select query with INNER JOIN on multiple tables
-SELECT column, another_table_column, …
+Using the `JOIN` clause in a query, we can combine row data across two separate tables using this unique key. The first of the joins that we will introduce is the `INNER JOIN`.
+
+```sql
+-- Select query with INNER JOIN on multiple tables
+SELECT column, another_table_column
 FROM mytable
 INNER JOIN another_table
     ON mytable.id = another_table.id
 WHERE condition(s)
-ORDER BY column, … ASC/DESC
+ORDER BY column ASC/DESC
 LIMIT num_limit OFFSET num_offset;
 ```
 
-##
+## Asymmetrical Data
 
-### Asymmetrical Data
+If the two tables have asymmetric data, which can easily happen when data is entered in different stages, then we would have to use a `LEFT JOIN`, `RIGHT JOIN` or `FULL JOIN` instead to ensure that the data you need is not left out of the results.
 
-If the two tables have asymmetric data, which can easily happen when data is entered in different stages, then we would have to use a LEFT JOIN, RIGHT JOIN or FULL JOIN instead to ensure that the data you need is not left out of the results.
-
-```SQL
---- Select query with LEFT/RIGHT/FULL JOINs on multiple tables
-SELECT column, another_column, …
+```sql
+-- Select query with LEFT/RIGHT/FULL JOINs on multiple tables
+SELECT column, another_column
 FROM mytable
 INNER/LEFT/RIGHT/FULL JOIN another_table
     ON mytable.id = another_table.matching_id
 WHERE condition(s)
-ORDER BY column, … ASC/DESC
+ORDER BY column ASC/DESC
 LIMIT num_limit OFFSET num_offset;
 ```
 
-Like the `INNER JOIN` these three new joins have to specify which column to join the data on.
+Like the `INNER JOIN`, these three new joins have to specify which column to join the data on.
 
-When joining table A to table B, a `LEFT JOIN` simply includes rows from A regardless of whether a matching row is found in B. The `RIGHT JOIN` is the same, but reversed, keeping rows in B regardless of whether a match is found in A. Finally, a `FULL JOIN` simply means that rows from both tables are kept, regardless of whether a matching row exists in the other table.
+- **LEFT JOIN**: Includes rows from table A regardless of whether a matching row is found in table B.
+- **RIGHT JOIN**: The same as LEFT JOIN, but reversed, keeping rows in table B regardless of whether a match is found in table A.
+- **FULL JOIN**: Rows from both tables are kept, regardless of whether a matching row exists in the other table.
 
 > [!NOTE]
-> When using any of these new joins, you will likely have to write additional logic to deal with `NULL`s in the result and constraints (more on this in the next lesson).
+> When using any of these new joins, you will likely have to write additional logic to deal with `NULL`s in the result and constraints.
 
 > [!TIP]  
 > **Did you know?**  

@@ -1,38 +1,38 @@
-# Learning SQL
+# SQL Basics
 
-### SELECT
+## SELECT
 
-#### Selecting all elements
+### Selecting all elements
 
-```SQL
+```sql
 SELECT * FROM table_name;
 ```
 
-#### Specific columns
+### Specific columns
 
-```SQL
+```sql
 SELECT column1, column2, column3
 FROM table_name;
 ```
 
-#### Unique rows in columns
+### Unique rows in columns
 
-```SQL
-SELECT column_name FROM table_name; --- this is selecting all genres
+```sql
+SELECT column_name FROM table_name; -- this is selecting all genres
 
-SELECT DISTINCT column_name FROM table_name --- this is selecting unqiue genres
+SELECT DISTINCT column_name FROM table_name; -- this is selecting unique genres
 ```
 
-##### Example Usage
+#### Example Usage
 
-```SQL
-SELECT * from shows;
+```sql
+SELECT * FROM shows;
 
 SELECT name, genre
 FROM shows;
 ```
 
-### WHERE
+## WHERE
 
 > [!NOTE]  
 > The `WHERE` keyword always goes after the `FROM` part of the query.
@@ -40,30 +40,29 @@ FROM shows;
 Comparison operators:
 
 1. `=` equal to
-2. `=` not equal to
+2. `!=` or `<>` not equal to
 3. `>` greater than
 4. `<` less than
 5. `>=` greater than or equal to
 6. `<=` less than or equal to
 
-```SQL
---- Example
-select * from shows where tomatometer < 60
+```sql
+-- Example
+SELECT * FROM shows WHERE tomatometer < 60;
 ```
 
-### LIKE
+## LIKE
 
-The `LIKE` operator can be used to search for a pattern in a column. It’s used in the `WHERE` clause:
+The `LIKE` operator can be used to search for a pattern in a column. It's used in the `WHERE` clause.
 
 The `%` can be used in different ways:
 
-`A%` matches values that begin with letter 'A'.
-
-`%z` matches values that end with 'z'.
+- `A%` matches values that begin with the letter 'A'.
+- `%z` matches values that end with 'z'.
 
 We can also use `%` both before and after a pattern:
 
-```SQL
+```sql
 SELECT *
 FROM shows
 WHERE name LIKE '%the%';
@@ -71,30 +70,28 @@ WHERE name LIKE '%the%';
 
 Here, any show that contains the word "the" in its name will be returned.
 
-### BETWEEN
+## BETWEEN
 
 The `BETWEEN` operator is used in a `WHERE` clause to filter the result set within a certain range. The range must be separated by an `AND` keyword.
 
 > [!TIP]
 > For example, this query filters the result to only include shows between the years 2020 and 2025 (inclusive):
 
-```SQL
+```sql
 SELECT *
 FROM shows
-WHERE year
-BETWEEN 2020 AND 2025;
+WHERE year BETWEEN 2020 AND 2025;
 ```
 
 In this statement, `BETWEEN` filters the result to only include shows with names that begin with the letter 'A' up to 'D':
 
-```SQL
+```sql
 SELECT *
 FROM shows
-WHERE name
-BETWEEN 'A' AND 'D';
+WHERE name BETWEEN 'A' AND 'D';
 ```
 
-### ORDER BY
+## ORDER BY
 
 The `ORDER BY` statement sorts rows of data in ascending or descending order. By default, this command sorts the data in ascending order.
 
