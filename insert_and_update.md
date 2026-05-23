@@ -47,3 +47,13 @@ WHERE condition;
 
 > [!TIP]
 > One helpful tip is to always write the constraint first and test it in a SELECT query to make sure you are updating the right rows, and only then writing the column/value pairs to update.
+
+```sql
+-- example
+UPDATE movies
+SET
+    title = "Toy Story 3",
+    director = "Lee Unkrich"
+where title = "Toy Story 8";
+``
+```

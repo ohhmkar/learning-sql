@@ -13,6 +13,8 @@ This contains a collection of markdown files covering various SQL topics. Notes 
 - [Queries with Expressions](queries_with_expressions.md)
 - [Order of Execution](order_of_execution.md)
 - [Insert and Update](insert_and_update.md)
+- [Creating Tables](creating_new_table.md)
+- [Deleting Data](deleting.md)
 
 ## References
 
