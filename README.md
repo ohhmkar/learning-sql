@@ -11,7 +11,9 @@ This contains a collection of markdown files covering various SQL topics. Notes 
 - [Queries with Aggregates](queries_with_aggregrates.md)
 - [Queries with Constraints](queries_with_constraints.md)
 - [Queries with Expressions](queries_with_expressions.md)
+- [Order of Execution](order_of_execution.md)
+- [Insert and Update](insert_and_update.md)
 
 ## References
 
--[SQLBolt](https://sqlbolt.com/)
+- [SQLBolt](https://sqlbolt.com/)
