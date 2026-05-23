@@ -31,3 +31,15 @@ GROUP BY column;
 ```
 
 The `GROUP BY` clause works by grouping rows that have the same value in the column specified.
+
+## Having 
+SQL allows us to do this by adding an additional `HAVING` clause which is used specifically with the GROUP BY clause to allow us to filter grouped rows from the result set.
+
+```SQL
+--- Select query with HAVING constraint
+SELECT group_by_column, AGG_FUNC(column_expression) AS aggregate_result_alias, …
+FROM mytable
+WHERE condition
+GROUP BY column
+HAVING group_condition;
+```
